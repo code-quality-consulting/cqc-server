@@ -4,8 +4,8 @@ echo "IP4 addresses associated with this host:"
 hostname -I 
 STATUS=0
 
-#apt-get update
-#apt-get upgrade --yes --force-yes
+apt-get update
+apt-get upgrade --yes --force-yes
 
 curl -sL https://raw.githubusercontent.com/creationix\
 /nvm/v0.33.8/install.sh -o /tmp/install_nvm.sh
@@ -13,6 +13,8 @@ let STATUS=$STATUS+$?
 
 bash /tmp/install_nvm.sh
 rm /tmp/install_nvm.sh
+
+source ~/.bashrc
 
 nvm install 9.6.1 # will install in user calling this script
 let STATUS=$STATUS+$?  
@@ -23,6 +25,8 @@ APP_GIT="https://github.com/code-quality-consulting/$APP.git"
 APP_LOCAL_GIT=$APP_LOCAL/.git
 APP_BRANCH="test-setup"
 
+git config user.name "Mike Ricos"
+git config user.email "mike.ricos@gmail.com"
 git clone $APP_GIT $APP_LOCAL
 let STATUS=$STATUS+$?  
 
