@@ -1,5 +1,5 @@
 echo "CQC Provisioning Script"
-echo "User is $UESR"
+echo "User is $USER"
 echo "IP4 addresses associated with this host:"
 hostname -I 
 STATUS=0
@@ -25,8 +25,6 @@ APP_GIT="https://github.com/code-quality-consulting/$APP.git"
 APP_LOCAL_GIT=$APP_LOCAL/.git
 APP_BRANCH="test-setup"
 
-git config user.name "Mike Ricos"
-git config user.email "mike.ricos@gmail.com"
 git clone $APP_GIT $APP_LOCAL
 let STATUS=$STATUS+$?  
 
@@ -35,7 +33,6 @@ git --git-dir=$APP_LOCAL_GIT \
     checkout -b $APP_BRANCH
 let STATUS=$STATUS+$?
 
-#desired driven development :)
 if [[ $STATUS = 0 ]]
 then
   echo "Status: $STATUS, Provisioning was successful."

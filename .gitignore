@@ -1,3 +1,11 @@
+# cqc-server specific
+env
+pid
+stdout
+stderr
+
+
+
 # Logs
 logs
 *.log
