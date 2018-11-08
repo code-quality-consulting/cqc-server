@@ -12,17 +12,11 @@ import {makeServer} from "../mail-endpoint/server"
 // are elements of a parseq Sequence. The requestor elements
 // are sequentialy called by calling parseq.sequence()
 
-/*
-const serverRequestor=makeServer({"CQC_HOST":"167.99.104.60", 
-								"CQC_PORT":"80"}
-								);
-*/
-
 const {
    CQC_HOST,
    CQC_PORT,
    CQC_APPROOT
-} =process.env;
+} = process.env;
 
 const environmentVariables = {
    CQC_HOST,
@@ -30,8 +24,6 @@ const environmentVariables = {
    CQC_APPROOT
 };
 const serverRequestor=makeServer(environmentVariables);
-
-// function is the callback and I have an undefined value currently
 serverRequestor(function (server,reason){
     if (server) {
         console.log(server);

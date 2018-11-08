@@ -1,1 +1,1 @@
-ps -ef | grep node
+ps -ef | grep node | grep -v grep
